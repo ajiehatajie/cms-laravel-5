@@ -1,0 +1,19 @@
+
+// Fonts
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+
+// Variables
+@import "variables";
+
+//// Bootstrap
+//@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+//@import "node_modules/bulma/bulma";
+@import url(https://bootswatch.com/united/bootstrap.min.css);
+
+.container2{
+	margin-right: auto;
+    /* margin-left: auto; */
+    padding-left: 15px;
+    padding-right: 15px;
+}
+    
