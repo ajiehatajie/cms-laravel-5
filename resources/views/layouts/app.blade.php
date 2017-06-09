@@ -13,7 +13,7 @@
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link href="/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
     <!-- Scripts -->
     <script>
         window.Laravel = {!! json_encode([
@@ -83,6 +83,10 @@
     </div>
 
     <!-- Scripts -->
+    
+    <script src="/js/jquery/jquery-1.8.3.min.js"  type="text/javascript"></script>
     <script src="/js/app.js"></script>
+    <script src="/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
+        
 </body>
 </html>

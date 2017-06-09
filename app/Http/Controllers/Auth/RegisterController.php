@@ -7,11 +7,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
-   use Illuminate\Http\Request;
-    use Illuminate\Auth\Events\Registered;
-    use Jrean\UserVerification\Traits\VerifiesUsers;
-    use Jrean\UserVerification\Facades\UserVerification;
-
+use Illuminate\Http\Request;
+use Illuminate\Auth\Events\Registered;
+use Jrean\UserVerification\Traits\VerifiesUsers;
+use Jrean\UserVerification\Facades\UserVerification;
+use Mailgun;
 class RegisterController extends Controller
 {
     /*
@@ -74,6 +74,8 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+
+       
     }
 
 
@@ -88,6 +90,13 @@ class RegisterController extends Controller
             $this->validator($request->all())->validate();
 
             $user = $this->create($request->all());
+
+            Mailgun::api()->post("lists/".config('mailgun.mail_list')."/members", [
+                            'address'      => $request->email,
+                            'name'         => $request->name,
+                            'subscribed'   => 'yes'
+            ]); 
+
 
             event(new Registered($user));
 

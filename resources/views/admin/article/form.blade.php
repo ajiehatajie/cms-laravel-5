@@ -42,7 +42,15 @@
 </div><div class="form-group {{ $errors->has('publish') ? 'has-error' : ''}}">
     {!! Form::label('publish', 'Publish', ['class' => 'col-md-1 control-label']) !!}
     <div class="col-md-11">
-        {!! Form::input('date', 'publish', $article->published_at->format('Y-m-d'), ['class' => 'form-control']) !!}
+        
+         <div class="input-group date form_datetime col-md-5" data-date="1979-09-16T05:25:07Z" 
+         data-date-format="yyyy-mm-dd HH:ii" data-link-field="dtp_input1">
+                    <input class="form-control" size="16" name="publish" type="text" value="{{ $article->publish }}" readonly>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                      
+         </div>
+
         {!! $errors->first('publish', '<p class="help-block">:message</p>') !!}
     </div>
 </div><div class="form-group {{ $errors->has('thumbnails') ? 'has-error' : ''}}">
@@ -82,13 +90,23 @@
 <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
 <script>
   var options = {
-    filebrowserImageBrowseUrl: '/filemanager?type=Images',
-    filebrowserImageUploadUrl: '/filemanager/upload?type=Images&_token=',
-    filebrowserBrowseUrl: '/filemanager?type=Files',
-    filebrowserUploadUrl: '/filemanager/upload?type=Files&_token='
+    filebrowserImageBrowseUrl: '/admin/filemanager?type=Images',
+    filebrowserImageUploadUrl: '/admin/filemanager/upload?type=Images&_token=',
+    filebrowserBrowseUrl: '/admin/filemanager?type=Files',
+    filebrowserUploadUrl: '/admin/filemanager/upload?type=Files&_token='
   };
 </script>
+<script type="text/javascript">
+    $('.form_datetime').datetimepicker({
+      autoclose: true,
+      todayBtn: true,
+      format: "yyyy-mm-dd HH:ii",
+      pickerPosition: "bottom-left",
+      startDate : new Date()
 
+    });
+ 
+</script>
 <script>
 CKEDITOR.replace('my-editor', options);
 </script>

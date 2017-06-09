@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use App\Jobs\NewsLetterMail;
 use App\Article;
 use App\category;
 use App\Tag;
@@ -95,6 +95,8 @@ class ArticleController extends Controller
                 Session::flash('flash_message', 'Article added!');
 
 
+                 dispatch(new NewsLetterMail($post) );
+
         } else {
 
                 $requestData = $request->all();
@@ -102,7 +104,7 @@ class ArticleController extends Controller
                 $post->save();
                 $post->CreateInputTag()->attach($request->input('tag'));
                 Session::flash('flash_message', 'Article added!');
-
+                  dispatch(new NewsLetterMail($post) );
         }
 
       
@@ -183,6 +185,7 @@ class ArticleController extends Controller
             $image->move($destinationPath, $input['imagename']);
 
             $article->update($requestData);
+            $article->CreateInputTag()->sync($request->input('tag'));
             $article->thumbnails =   $input['imagename'];
             Session::flash('flash_message', 'Article updated!');
             

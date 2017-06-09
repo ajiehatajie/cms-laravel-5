@@ -102,8 +102,11 @@ class Article extends Model
       
     public function getPublishedatAttribute($date)//untuk set format pada form variable 
     {
-          return new Carbon($date);
+         $createdAt = Carbon::parse($date);
+        // $createdAt = $createdAt->format('M d Y');
 
+          return new Carbon($date);
+         // return $createdAt;
           
     
     }

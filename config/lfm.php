@@ -15,7 +15,7 @@ return [
     'middlewares' => ['web','auth'],
 
     // The url to this package. Change it if necessary.
-    'prefix' => 'filemanager',
+    'prefix' => 'admin/filemanager',
 
     // The prefix of urls to non-public files, for exmaple if: base_directory !== 'public'
     // Without slashes

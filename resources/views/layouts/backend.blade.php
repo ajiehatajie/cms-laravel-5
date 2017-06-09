@@ -14,6 +14,8 @@
         <link href="/css/app.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+        <link href="/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+          
       
         <!-- Scripts -->
         <script>
@@ -125,6 +127,8 @@
 
         <!-- Scripts -->
         <script src="/js/app.js"></script>
+        <script src="/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
+        
         @yield('footer')
         <script type="text/javascript">
             $(function () {

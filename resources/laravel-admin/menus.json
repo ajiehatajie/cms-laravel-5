@@ -1,1 +1,63 @@
-{"menus":[{"section":"User Manager","items":[{"title":"Users","url":"\/admin\/users"},{"title":"Roles","url":"\/admin\/roles"},{"title":"Permissions","url":"\/admin\/permissions"},{"title":"Give Role Permissions","url":"\/admin\/give-role-permissions"}]},{"section":"Tools","items":[{"title":"Generator","url":"\/admin\/generator"}]},{"section":"Modules","items":[{"title":"Category","url":"\/admin\/category"},{"title":"Tag","url":"\/admin\/tag"},{"title":"Article","url":"\/admin\/article"}]}]}
+{  
+   "menus":[  
+      {  
+         "section":"User Manager",
+         "items":[  
+            {  
+               "title":"Users",
+               "url":"\/admin\/users"
+            },
+            {  
+               "title":"Roles",
+               "url":"\/admin\/roles"
+            },
+            {  
+               "title":"Permissions",
+               "url":"\/admin\/permissions"
+            },
+            {  
+               "title":"Give Role Permissions",
+               "url":"\/admin\/give-role-permissions"
+            }
+         ]
+      },
+      {  
+         "section":"Tools",
+         "items":[  
+            {  
+               "title":"Generator",
+               "url":"\/admin\/generator"
+            }
+         ]
+      },
+      {  
+         "section":"Modules",
+         "items":[  
+            {  
+               "title":"Category",
+               "url":"\/admin\/category"
+            },
+            {  
+               "title":"Tag",
+               "url":"\/admin\/tag"
+            },
+            {  
+               "title":"Article",
+               "url":"\/admin\/article"
+            },
+            {  
+               "title":"Newsletter",
+               "url":"\/admin\/newsletter"
+            },
+            {  
+               "title":"FileManager",
+               "url":"\/admin\/filemanager"
+            },
+             {  
+               "title":"SendCampaign",
+               "url":"\/admin\/campaign"
+            }
+         ]
+      }
+   ]
+}

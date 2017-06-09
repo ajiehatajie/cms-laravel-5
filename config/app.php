@@ -64,7 +64,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Jakarta',
 
     /*
     |--------------------------------------------------------------------------
@@ -176,7 +176,8 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Cviebrock\EloquentSluggable\ServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
-
+        Bogardo\Mailgun\MailgunServiceProvider::class,
+        Skovmand\Mailchimp\MailchimpServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -240,6 +241,7 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
         'Input'     => Illuminate\Support\Facades\Input::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
+         'Mailgun' => Bogardo\Mailgun\Facades\Mailgun::class,
     ],
 
 ];

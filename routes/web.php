@@ -40,7 +40,24 @@ Route::get('email-verification/check/{token}', 'Auth\RegisterController@getVerif
 Route::resource('admin/category', 'Admin\\CategoryController');
 Route::resource('admin/tag', 'Admin\\TagController');
 Route::resource('admin/article', 'Admin\\ArticleController');
+Route::get('admin/campaign', 'Admin\\CampaignController@index');
+
 
 
 Route::get('/admin/users/{id}/upload','Admin\UsersController@upload');
 Route::post('/upload/image','Admin\UsersController@postUpload');
+
+Route::get('/user/subscribe','SubscriberController@index');
+
+Route::post('/user/subscribe','SubscriberController@subscribe');
+
+Route::get('/user/unsubscribe','SubscriberController@getunsubscribe');
+Route::post('/user/unsubscribe','SubscriberController@unsubscribe');
+Route::get('/sendmail/subscribe','SubscriberController@sendemail');
+
+Route::get('manageMailChimp', 'MailChimpController@manageMailChimp');
+Route::post('subscribe',['as'=>'subscribe','uses'=>'SubscriberController@subscribe']);
+Route::post('unsubscribe',['as'=>'unsubscribe','uses'=>'SubscriberController@unsubscribe']);
+
+Route::post('sendCompaign',['as'=>'sendCompaign','uses'=>'SubscriberController@sendCompaign']);
+Route::resource('admin/newsletter', 'Admin\\NewsletterController');

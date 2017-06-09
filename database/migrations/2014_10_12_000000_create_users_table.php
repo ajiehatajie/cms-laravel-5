@@ -22,6 +22,8 @@ class CreateUsersTable extends Migration
             $table->boolean('verified')->default(false);
             $table->string('verification_token')->nullable();
             $table->string('profile_picture')->default('default.png');
+            $table->boolean('subscribe')->default(true);
+            $table->timestamp('unsubscribe')->useCurrent = true;            
             $table->timestamps();
         });
     }

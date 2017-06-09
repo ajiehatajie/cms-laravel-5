@@ -5,13 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use App\Tag;
+use App\Newsletter;
 use Illuminate\Http\Request;
 use Session;
-use App\Jobs\NewsLetterMail;
-use App\Mail\MailNewLetters;
-use Illuminate\Support\Facades\Mail;
-class TagController extends Controller
+
+class NewsletterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,14 +22,16 @@ class TagController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $tag = Tag::where('title', 'LIKE', "%$keyword%")
-				->orWhere('slug', 'LIKE', "%$keyword%")
-				->paginate($perPage);
+            $newsletter = Newsletter::where('email', 'LIKE', "%$keyword%")
+				->orWhere('unsubscribe', 'LIKE', "%$keyword%")
+				->orWhere('receive', 'LIKE', "%$keyword%")
+				
+                ->paginate($perPage);
         } else {
-            $tag = Tag::paginate($perPage);
+            $newsletter = Newsletter::paginate($perPage);
         }
 
-        return view('admin.tag.index', compact('tag'));
+        return view('admin.newsletter.index', compact('newsletter'));
     }
 
     /**
@@ -41,7 +41,7 @@ class TagController extends Controller
      */
     public function create()
     {
-        return view('admin.tag.create');
+        return view('admin.newsletter.create');
     }
 
     /**
@@ -54,20 +54,15 @@ class TagController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-			'title' => 'required'
+			'email' => 'required'
 		]);
         $requestData = $request->all();
         
-        //Tag::create($requestData);
-        $tag = new Tag($requestData);
-        $tag->save();
+        Newsletter::create($requestData);
 
-        Session::flash('flash_message', 'Tag added!');
-        dispatch(new NewsLetterMail($tag) );
+        Session::flash('flash_message', 'Newsletter added!');
 
-        //Mail::to('admin@admin.com')->queue(new MailNewLetters($tag) );
-
-        return redirect('admin/tag');
+        return redirect('admin/newsletter');
     }
 
     /**
@@ -79,9 +74,9 @@ class TagController extends Controller
      */
     public function show($id)
     {
-        $tag = Tag::findOrFail($id);
+        $newsletter = Newsletter::findOrFail($id);
 
-        return view('admin.tag.show', compact('tag'));
+        return view('admin.newsletter.show', compact('newsletter'));
     }
 
     /**
@@ -93,9 +88,9 @@ class TagController extends Controller
      */
     public function edit($id)
     {
-        $tag = Tag::findOrFail($id);
+        $newsletter = Newsletter::findOrFail($id);
 
-        return view('admin.tag.edit', compact('tag'));
+        return view('admin.newsletter.edit', compact('newsletter'));
     }
 
     /**
@@ -109,16 +104,16 @@ class TagController extends Controller
     public function update($id, Request $request)
     {
         $this->validate($request, [
-			'title' => 'required'
+			'email' => 'required'
 		]);
         $requestData = $request->all();
         
-        $tag = Tag::findOrFail($id);
-        $tag->update($requestData);
+        $newsletter = Newsletter::findOrFail($id);
+        $newsletter->update($requestData);
 
-        Session::flash('flash_message', 'Tag updated!');
+        Session::flash('flash_message', 'Newsletter updated!');
 
-        return redirect('admin/tag');
+        return redirect('admin/newsletter');
     }
 
     /**
@@ -130,10 +125,10 @@ class TagController extends Controller
      */
     public function destroy($id)
     {
-        Tag::destroy($id);
+        Newsletter::destroy($id);
 
-        Session::flash('flash_message', 'Tag deleted!');
+        Session::flash('flash_message', 'Newsletter deleted!');
 
-        return redirect('admin/tag');
+        return redirect('admin/newsletter');
     }
 }
