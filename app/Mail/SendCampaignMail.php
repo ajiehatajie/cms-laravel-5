@@ -6,13 +6,10 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use App\Jobs\NewsLetterMail;
-use Illuminate\Support\Facades\Log;
 
-class MailNewLetters extends Mailable
+class SendCampaignMail extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
-    public $total = 30;
     public $data;
     /**
      * Create a new message instance.
@@ -21,11 +18,9 @@ class MailNewLetters extends Mailable
      */
     public function __construct($data)
     {
-        $this->data=$data;
+        $this->data= $data;
 
-       
-       
-    }   
+    }
 
     /**
      * Build the message.
@@ -34,6 +29,7 @@ class MailNewLetters extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.newsletter');
+        $subject = $this->data['subject'];
+        return $this->subject($subject)->markdown('emails.sendCampaign');
     }
 }

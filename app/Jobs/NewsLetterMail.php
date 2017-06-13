@@ -27,7 +27,8 @@ class NewsLetterMail implements ShouldQueue
     {
         $this->Tag = $Tag;
 
-       
+     
+
     }
 
     /**

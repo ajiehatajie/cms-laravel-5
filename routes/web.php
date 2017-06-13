@@ -40,7 +40,10 @@ Route::get('email-verification/check/{token}', 'Auth\RegisterController@getVerif
 Route::resource('admin/category', 'Admin\\CategoryController');
 Route::resource('admin/tag', 'Admin\\TagController');
 Route::resource('admin/article', 'Admin\\ArticleController');
+
 Route::get('admin/campaign', 'Admin\\CampaignController@index');
+Route::post('admin/campaign', 'Admin\\CampaignController@postCampaign');
+
 
 
 
