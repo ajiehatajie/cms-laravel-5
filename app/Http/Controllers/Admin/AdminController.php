@@ -7,7 +7,7 @@ use App\Permission;
 use App\Role;
 use Illuminate\Http\Request;
 use Session;
-
+use VisitLog;
 class AdminController extends Controller
 {
     /**
@@ -17,6 +17,7 @@ class AdminController extends Controller
      */
     public function index()
     {
+        VisitLog::save();
         return view('admin.dashboard');
     }
 

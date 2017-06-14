@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "6e1ccc5b3291ba85b3facf1f2be275a5",
+    "content-hash": "7713b785702129b7186ddfeb3785587c",
     "packages": [
         {
             "name": "appzcoder/crud-generator",
@@ -2387,6 +2387,97 @@
                 "uuid"
             ],
             "time": "2017-03-26T20:37:53+00:00"
+        },
+        {
+            "name": "rap2hpoutre/laravel-log-viewer",
+            "version": "v0.10.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rap2hpoutre/laravel-log-viewer.git",
+                "reference": "971243e8a98c4f68c50df3c2b714517ad9fc90ab"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rap2hpoutre/laravel-log-viewer/zipball/971243e8a98c4f68c50df3c2b714517ad9fc90ab",
+                "reference": "971243e8a98c4f68c50df3c2b714517ad9fc90ab",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "4.2.*|5.*",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/controllers"
+                ],
+                "psr-0": {
+                    "Rap2hpoutre\\LaravelLogViewer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "rap2hpoutre",
+                    "email": "raphaelht@gmail.com"
+                }
+            ],
+            "description": "A Laravel log reader",
+            "keywords": [
+                "laravel",
+                "log",
+                "log-reader",
+                "log-viewer",
+                "logging",
+                "lumen"
+            ],
+            "time": "2017-05-28T15:51:16+00:00"
+        },
+        {
+            "name": "sarfraznawaz2005/visitlog",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sarfraznawaz2005/visitlog.git",
+                "reference": "8e3ae47619952bd5db08a3e0754744d31692c4f7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sarfraznawaz2005/visitlog/zipball/8e3ae47619952bd5db08a3e0754744d31692c4f7",
+                "reference": "8e3ae47619952bd5db08a3e0754744d31692c4f7",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5",
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Sarfraznawaz2005\\VisitLog\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sarfraz Ahmed",
+                    "email": "sarfraznawaz2005@gmail.com"
+                }
+            ],
+            "description": "Laravel package to log visitor information into database.",
+            "keywords": [
+                "IP",
+                "laravel",
+                "log",
+                "visitor"
+            ],
+            "time": "2016-09-17T11:12:21+00:00"
         },
         {
             "name": "skovmand/mailchimp-laravel",

@@ -28,4 +28,15 @@ class Newsletter extends Model
     protected $fillable = ['email', 'unsubscribe', 'receive'];
 
     
+    public function User()
+    {
+        return $this->belongsTo('App\User');
+    }
+
+      public function ReceiveMail($email)
+     {
+          
+          $this->receive = $this->receive + 1;
+          $this->save();
+     }
 }

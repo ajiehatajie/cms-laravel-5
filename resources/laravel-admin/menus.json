@@ -49,13 +49,14 @@
                "title":"Newsletter",
                "url":"\/admin\/newsletter"
             },
-            {  
-               "title":"FileManager",
-               "url":"\/admin\/filemanager"
-            },
+           
              {  
                "title":"SendCampaign",
                "url":"\/admin\/campaign"
+            },
+             {  
+               "title":"Visitor",
+               "url":"\/admin\/visitor"
             }
          ]
       }

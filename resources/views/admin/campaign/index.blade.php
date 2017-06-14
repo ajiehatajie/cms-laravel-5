@@ -1,88 +1,59 @@
 @extends('layouts.backend')
 
 @section('content')
-<h2 class="text-center">Send Campaign NewsLetter</h2>
-<div class="container">
-     <div class="row">
-          @include('admin.sidebar')
-          @if ($message = Session::get('success'))
-<div class="alert alert-success alert-block">
-  <button type="button" class="close" data-dismiss="alert">×</button> 
-        <strong>{{ $message }}</strong>
-</div>
-@endif
+    <div class="container">
+        <div class="row">
+            @include('admin.sidebar')
 
-@if ($message = Session::get('error'))
-<div class="alert alert-danger alert-block">
-  <button type="button" class="close" data-dismiss="alert">×</button> 
-        <strong>{{ $message }}</strong>
-</div>
-@endif
+            <div class="col-md-9">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Campaign Send</div>
+                    <div class="panel-body">
+                        <a href="{{ url('/admin/campaign/create') }}" class="btn btn-success btn-sm" title="Add New campaign">
+                            <i class="fa fa-plus" aria-hidden="true"></i> Add New
+                        </a>
 
-  <div class="row">
-      <div class="col-md-8">
-      <div class="well well-sm">
-          {!! Form::open(['url'=>'/admin/campaign','class'=>'form-horizontal']) !!}
-          <fieldset>
-            <legend class="text-center">Send Campaign</legend>
+                        {!! Form::open(['method' => 'GET', 'url' => '/admin/campaign', 'class' => 'navbar-form navbar-right', 'role' => 'search'])  !!}
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="search" placeholder="Search...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                        </div>
+                        {!! Form::close() !!}
 
-    
-            <!-- Name input-->
-            <div class="form-group">
-              <label class="col-md-3 control-label" for="name">Subject</label>
-              <div class="col-md-9">
-                <input id="name" name="subject" type="text" placeholder="Your Subject" class="form-control">
-              </div>
+                        <br/>
+                        <br/>
+                        <div class="table-responsive">
+                            <table class="table table-borderless">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th><th>Subject</th><th>Content</th><th>Send Date</th><th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($data as $item)
+                                    <tr>
+                                        <td>{{ $item->id }}</td>
+                                        <td>{{ $item->subject }}</td><td>{!! str_limit($item->content,200) !!}</td>
+                                        <td> {{ $item->created_at->diffForHumans() }}</td>
+                                        <td>
+                                            <a href="{{ url('/admin/campaign/' . $item->id) }}" title="View Tag"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
+                                           
+                                            {!! Form::close() !!}
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                            <div class="pagination-wrapper"> {!! $data->appends(['search' => Request::get('search')])->render() !!} </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
-
-            <!-- Message body -->
-            <div class="form-group">
-              <label class="col-md-3 control-label" for="message">Your message</label>
-              <div class="col-md-9">
-                   {!! Form::textarea('content', null, ['class' => 'form-control my-editor', 'required' => 'required','id'=>'my-editor']) !!}
-              </div>
-            </div>
-
-    
-            <!-- Form actions -->
-            <div class="form-group">
-              <div class="col-md-12 text-right">
-                <button type="submit" class="btn btn-primary btn-lg">Send Campaign</button>
-              </div>
-            </div>
-          </fieldset>
-          {!! Form::close() !!}
         </div>
     </div>
-  </div>
-
-     </div>
-</div>
-@endsection
-
-@section('footer')
-
-<script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
-<script>
-  var options = {
-    filebrowserImageBrowseUrl: '/admin/filemanager?type=Images',
-    filebrowserImageUploadUrl: '/admin/filemanager/upload?type=Images&_token=',
-    filebrowserBrowseUrl: '/admin/filemanager?type=Files',
-    filebrowserUploadUrl: '/admin/filemanager/upload?type=Files&_token='
-  };
-</script>
-<script type="text/javascript">
-    $('.form_datetime').datetimepicker({
-      autoclose: true,
-      todayBtn: true,
-      format: "yyyy-mm-dd HH:ii",
-      pickerPosition: "bottom-left",
-      startDate : new Date()
-
-    });
- 
-</script>
-<script>
-CKEDITOR.replace('my-editor', options);
-</script>
 @endsection

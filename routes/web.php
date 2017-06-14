@@ -42,10 +42,10 @@ Route::resource('admin/tag', 'Admin\\TagController');
 Route::resource('admin/article', 'Admin\\ArticleController');
 
 Route::get('admin/campaign', 'Admin\\CampaignController@index');
-Route::post('admin/campaign', 'Admin\\CampaignController@postCampaign');
-
-
-
+Route::get('admin/campaign/create', 'Admin\\CampaignController@create');
+Route::post('admin/campaign', 'Admin\\CampaignController@store');
+Route::get('admin/campaign/{id}', 'Admin\\CampaignController@show');
+Route::get('admin/visitor','Admin\\VisitorController@index');
 
 Route::get('/admin/users/{id}/upload','Admin\UsersController@upload');
 Route::post('/upload/image','Admin\UsersController@postUpload');

@@ -120,7 +120,7 @@ return [
     |
     */
 
-    'log' => env('APP_LOG', 'single'),
+    'log' => env('APP_LOG', 'daily'),
 
     'log_level' => env('APP_LOG_LEVEL', 'debug'),
 
@@ -178,6 +178,8 @@ return [
         Barryvdh\Debugbar\ServiceProvider::class,
         Bogardo\Mailgun\MailgunServiceProvider::class,
         Skovmand\Mailchimp\MailchimpServiceProvider::class,
+        Sarfraznawaz2005\VisitLog\VisitLogServiceProvider::class,
+        Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -242,6 +244,7 @@ return [
         'Input'     => Illuminate\Support\Facades\Input::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
          'Mailgun' => Bogardo\Mailgun\Facades\Mailgun::class,
+         'VisitLog' => Sarfraznawaz2005\VisitLog\Facades\VisitLog::class,
     ],
 
 ];
