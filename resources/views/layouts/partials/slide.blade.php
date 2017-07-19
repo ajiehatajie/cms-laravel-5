@@ -53,7 +53,7 @@
          <i class="pe-7s-close-circle"></i>
       </div><!-- .topbar-close -->
 
-      <a class="logo" href="index.html"><img src="/paytren/img/logo-paytren.png" alt="Ad Center"></a>
+      <a class="logo" href="{{URL('/')}}"><img src="/paytren/img/logo-paytren.png" alt="Ad Center"></a>
 
       <div class="site-contact-info">
          <div class="contact-info-inner">
@@ -81,7 +81,7 @@
                   <li class="active"><a href="{{URL('/')}}">Beranda</a>
                   </li>
                   <li>
-                     <a href="{{URL('/about')}}">Profil</a>
+                     <a href="#">Profil</a>
                      <ul>
                          @foreach($pages as $page)
 
@@ -90,7 +90,7 @@
                      </ul>
                   </li>
                   <li>
-                     <a href="casestudies-1.html">Panduan</a>
+                     <a href="#">Panduan</a>
                      <ul>
                         <li><a href="{{URL('/panduan/calon-mitra')}}">Calon Mitra Baru</a></li>
                         <li><a href="{{URL('/panduan/video-bisnis-paytren')}}">Video Bisnis Paytren</a></li>
