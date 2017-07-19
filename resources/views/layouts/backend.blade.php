@@ -15,8 +15,8 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
         <link href="/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
-          
-      
+
+
         <!-- Scripts -->
         <script>
             window.Laravel = <?php echo json_encode([
@@ -70,7 +70,13 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        <li><a href="{{ url('/admin') }}">Dashboard <span class="sr-only">(current)</span></a></li>
+                        <li>
+                          @if (Auth::user()->hasRole('member'))
+                          <a href="{{ url('/member') }}">Dashboard <span class="sr-only">(current)</span></a></li>
+                          @elseif (Auth::user()->hasRole('superadmin'))
+                            <a href="{{ url('/admin') }}">Dashboard <span class="sr-only">(current)</span></a></li>
+                          @endif
+
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -113,11 +119,11 @@
                 </div>
             </div>
         @endif
-    
+
             <div id="app">
-              </div> 
+              </div>
             @yield('content')
-          
+
         <hr/>
 
         <div class="container">
@@ -128,7 +134,7 @@
         <!-- Scripts -->
         <script src="/js/app.js"></script>
         <script src="/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
-        
+
         @yield('footer')
         <script type="text/javascript">
             $(function () {

@@ -18,7 +18,7 @@
       <div class="container">
          <div class="row">
             <div class="col-md-4">
-               <a class="logo" href="index.html"><img src="/paytren/img/logo-paytren.png" alt="Ad Center"></a>
+               <a class="logo" href="{{URL('/')}}"><img src="/paytren/img/logo-paytren.png" alt="Ad Center"></a>
             </div>
             <div class="col-md-8">
                <div class="row site-contact-info">
@@ -38,7 +38,7 @@
                      </div>
                      <!-- .site-contact-info -->
                   </div>
-                 
+
                </div>
                <!-- .row -->
             </div>
@@ -68,7 +68,7 @@
             <P class="primary-color"><a href="https://api.whatsapp.com/send?phone=6281905876212">Dewi:+62 819-0587-6212​⁠​</a></P>
          </div>
 
-       
+
       </div><!-- site-contact-info -->
    </div>
 
@@ -100,7 +100,7 @@
                      <a href="{{URL('/blog')}}">Berita</a>
                   </li>
                   <li>
-                     <a href="blog1.html">Daftar</a>
+                     <a href="#">Daftar</a>
                      <ul>
                         <li><a href="{{URL('/login')}}">Masuk</a></li>
                         <li><a href="{{URL('/register')}}">Daftar</a></li>
@@ -148,7 +148,7 @@
 website promosi terbaik untuk semua mitra bisnis paytren, segera daftarkan id. mitra paytren anda sekarang juga. </p>
                   <div class="buttons-wrap">
                      <a class="btn btn-secondary" href="#">Registrasi&nbsp;&nbsp;<i class="fa fa-long-arrow-right"></i></a>
-                    
+
                   </div>
                </div>
                <!-- welcome-text -->
@@ -165,7 +165,7 @@ website promosi terbaik untuk semua mitra bisnis paytren, segera daftarkan id. m
                   Saatnya menggunakan aplikasi paytren di HP anda. Ayo segeralah bergabung dan dapatkan keuntungannya sekarang juga !</p>
                   <div class="buttons-wrap">
                      <a class="btn btn-secondary" href="#">Registrasi&nbsp;&nbsp;<i class="fa fa-long-arrow-right"></i></a>
-                     
+
                   </div>
                </div>
                <!-- welcome-text -->
@@ -183,7 +183,7 @@ website promosi terbaik untuk semua mitra bisnis paytren, segera daftarkan id. m
                     daftar sekarang !</p>
                   <div class="buttons-wrap">
                      <a class="btn btn-secondary" href="#">Registrasi&nbsp;&nbsp;<i class="fa fa-long-arrow-right"></i></a>
-                   
+
                   </div>
                </div>
                <!-- welcome-text -->
