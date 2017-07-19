@@ -26,6 +26,7 @@ class RouteServiceProvider extends ServiceProvider
         //
 
         parent::boot();
+          $this->binding();
     }
 
     /**
@@ -69,5 +70,29 @@ class RouteServiceProvider extends ServiceProvider
              ->middleware('api')
              ->namespace($this->namespace)
              ->group(base_path('routes/api.php'));
+    }
+
+    protected function binding()
+    {
+      Route::bind('slug',function($name)
+       {
+           return \App\Post::where('slug',$name)->published()->firstOrfail();
+       });
+       Route::bind('page',function($name)
+       {
+           return \App\Page::where('slug',$name)->published()->firstOrfail();
+       });
+      Route::bind('tag',function($name)
+        {
+            return \App\Tag::where('slug',$name)->firstOrfail();
+        });
+
+      Route::bind('series',function($name)
+          {
+              return \App\Category::where('slug',$name)->firstOrfail();
+              #return \App\Series::where('slug',$name)->article()->get();
+
+          });
+
     }
 }

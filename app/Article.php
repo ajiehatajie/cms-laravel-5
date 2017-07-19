@@ -42,7 +42,7 @@ class Article extends Model
 
      public static function boot()
      {
-       
+
            parent::boot();
            static::creating(function($model)
            {
@@ -66,7 +66,7 @@ class Article extends Model
     */
     public function addclick()
     {
-        
+
           $this->view = $this->view + 1;
           $this->save();
     }
@@ -75,7 +75,7 @@ class Article extends Model
     /*
          relasi dengan table post tags untuk proses input data baru
     */
-    
+
     public function CreateInputTag()
     {
          return $this->belongsToMany('App\Tag','article_tags','article_id','tag_id')->withTimestamps();
@@ -99,18 +99,25 @@ class Article extends Model
     *
     * untuk set value date pada form create
     */
-      
-    public function getPublishedatAttribute($date)//untuk set format pada form variable 
+
+    public function getPublishedatAttribute($date)//untuk set format pada form variable
     {
          $createdAt = Carbon::parse($date);
         // $createdAt = $createdAt->format('M d Y');
 
           return new Carbon($date);
          // return $createdAt;
-          
-    
+
+
     }
 
+    public function scopePublished($query) //buat filter artikel yang akan di publish
+    {
+        return $query->where('publish','<=',Carbon::now())
+                     ->where('status','=','1')
+                     ->orderBy('id','desc');
+
+    }
 
 
 }

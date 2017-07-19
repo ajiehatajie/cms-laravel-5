@@ -1,0 +1,18 @@
+{
+   "menus":[
+      {
+         "section":"Member",
+         "items":[
+            {
+               "title":"Home",
+               "url":"\/member"
+            },
+            {
+               "title":"Upgrade",
+               "url":"\/member\/upgrade"
+            }
+         ]
+      }
+
+   ]
+}

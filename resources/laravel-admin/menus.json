@@ -1,63 +1,67 @@
-{  
-   "menus":[  
-      {  
+{
+   "menus":[
+      {
          "section":"User Manager",
-         "items":[  
-            {  
+         "items":[
+            {
                "title":"Users",
                "url":"\/admin\/users"
             },
-            {  
+            {
                "title":"Roles",
                "url":"\/admin\/roles"
             },
-            {  
+            {
                "title":"Permissions",
                "url":"\/admin\/permissions"
             },
-            {  
+            {
                "title":"Give Role Permissions",
                "url":"\/admin\/give-role-permissions"
             }
          ]
       },
-      {  
+      {
          "section":"Tools",
-         "items":[  
-            {  
+         "items":[
+            {
                "title":"Generator",
                "url":"\/admin\/generator"
             }
          ]
       },
-      {  
+      {
          "section":"Modules",
-         "items":[  
-            {  
+         "items":[
+            {
                "title":"Category",
                "url":"\/admin\/category"
             },
-            {  
+            {
                "title":"Tag",
                "url":"\/admin\/tag"
             },
-            {  
+            {
                "title":"Article",
                "url":"\/admin\/article"
             },
-            {  
+            {
                "title":"Newsletter",
                "url":"\/admin\/newsletter"
             },
-           
-             {  
+
+             {
                "title":"SendCampaign",
                "url":"\/admin\/campaign"
             },
-             {  
+             {
                "title":"Visitor",
                "url":"\/admin\/visitor"
-            }
+            },
+            {
+              "title":"pages",
+              "url":"\/admin\/pages"
+           }
          ]
       }
    ]
